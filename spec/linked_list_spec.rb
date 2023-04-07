@@ -25,4 +25,12 @@ RSpec.describe LinkedList do
       expect(@linked_list.head.node_below.value).to eq("XX")
     end
   end
+
+  describe "#get_node_value" do
+    it "can get the value of a node at a specific index" do
+      expect(@linked_list.get_node_value(0)).to eq("X")
+      @linked_list.append("XX")
+      expect(@linked_list.get_node_value(1)).to eq("XX")
+    end
+  end
 end
