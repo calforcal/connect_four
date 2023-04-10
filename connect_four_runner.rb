@@ -12,6 +12,7 @@ board.list_builder
 turn = Turn.new(player, board)
 puts "Welcome #{name}, let's play some Connect Four!"
 puts board.print_board
-puts "Select a Column:"
-turn.choice = gets.chomp
-puts turn.choice
+while player.has_lost == false
+  turn.get_choice
+  turn.set_piece
+end
