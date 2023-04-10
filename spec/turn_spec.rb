@@ -8,7 +8,6 @@ RSpec.describe Turn do
   before(:each) do
     @player = Player.new("Sara")
     @board = Board.new.list_builder
-    # @board.list_builder
     @turn = Turn.new(@player, @board)
   end
 
