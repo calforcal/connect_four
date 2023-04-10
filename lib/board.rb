@@ -35,4 +35,33 @@ class Board
     end
     game_board
   end
+
+  def update_a_list(player)
+    @a_list.get_last_node.value = player.piece
+  end
+
+  def update_b_list(player)
+    @b_list.get_last_node.value = player.piece
+  end
+
+  def update_c_list(player)
+    @c_list.get_last_node.value = player.piece
+  end
+
+  def update_d_list(player)
+    @d_list.get_last_node.value = player.piece
+  end
+
+  def update_e_list(player)
+    @e_list.get_last_node.value = player.piece
+  end
+
+  def update_f_list(player)
+    @f_list.get_last_node.value = player.piece
+  end
+
+  def update_g_list(player)
+    @g_list.get_last_node.value = player.piece
+  end
+
 end
