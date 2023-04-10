@@ -4,17 +4,6 @@ class Linked_List
     @head = head
   end
 
-  # def count
-  #   count = 0
-  #   current_node = @head
-  #   while current_node.next_node != nil
-  #     current_node = current_node.next_node
-  #     count += 1
-  #   end
-  #     count += 1
-  # end
-
-
   def count
     count = 0
     current_piece = @head
@@ -57,4 +46,13 @@ class Linked_List
     end
     if last_node != nil then last_node.value else return nil end
   end
+
+  def get_last_node
+    last_node = @head
+    until last_node.node_below == nil || last_node.node_below.value == (" X " || " O ")
+      last_node = last_node.node_below
+    end
+    last_node
+  end
+
 end
