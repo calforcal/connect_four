@@ -1,5 +1,6 @@
 class Turn
-  attr_reader :player, :board, :acceptable_choices, :choice
+  attr_reader :player, :board, :acceptable_choices
+  attr_accessor :choice
 
   def initialize (player, board)
     @player = player
