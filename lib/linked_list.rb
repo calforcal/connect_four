@@ -4,18 +4,6 @@ class Linked_List
     @head = head
   end
 
-  def add_blank
-    if @head == nil
-      @head = Node.new(".")
-    else
-      bottom_piece = @head
-      while bottom_piece.node_below != nil
-        bottom_piece = bottom_piece.node_below
-      end
-      bottom_piece.node_below = Node.new(".")
-    end
-  end
-
   # def count
   #   count = 0
   #   current_node = @head
@@ -51,35 +39,22 @@ class Linked_List
   end
 
   def append(piece)
-    if head == nil
-      @head = Node.new(piece, nil)
-    else
-      last_node = @head
-      while last_node.node_below != nil
-        last_node = last_node.node_below
-      end
-        last_node.node_below = Node.new(piece, nil)
+    @head = Node.new(piece) if @head == nil
+
+    last_node = @head
+    while last_node.node_below != nil
+      last_node = last_node.node_below
     end
+    last_node.node_below = Node.new(piece)
   end
 
   def get_node_value(row_num)
     pos = 0
-    current_node = @head
-      while row_num > pos
-        current_node = current_node.node_below
-        pos += 1
-      end
-      current_node.value
+    last_node = @head
+    while row_num > pos
+      last_node = last_node.node_below
+      pos += 1
+    end
+    if last_node != nil then last_node.value else return nil end
   end
-
-
-  # def append(char)
-  #   current_piece = @head
-  #   while (current_piece.piece == " . ") && 
-  #     ((current_piece.node_below.piece == " . ") || (current_piece.node_below.node_below == nil))
-  #     current_piece = current_piece.node_below
-  #   end
-  #   current_piece = Node.new(char,)
-  # end
-
 end
