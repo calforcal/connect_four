@@ -49,10 +49,9 @@ class Linked_List
 
   def get_last_node
     last_node = @head
-    until last_node.node_below == nil || last_node.node_below.value == (" X " || " O ")
+    until last_node.node_below == nil || last_node.node_below.value != " . "
       last_node = last_node.node_below
     end
     last_node
   end
-
 end
