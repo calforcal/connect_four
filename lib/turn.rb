@@ -13,11 +13,20 @@ class Turn
   def get_choice
     puts "Select column A-G"
     @choice = gets.chomp
-    until valid_choice? == true
+    until valid_choice?
       puts "Please select a VALID column."
       puts "Select column A-G"
       @choice = gets.chomp
     end
+  end
+
+  def computer_choice
+    @choice = @acceptable_choices.shuffle.first
+    puts "Computers Turn:"
+    until valid_choice?
+      @choice = @acceptable_choices.shuffle.first
+    end
+
   end
 
   def valid_choice?
@@ -41,6 +50,7 @@ class Turn
     end
   end
 
+  #Auto board refresh ???
   def set_piece
     if @choice.upcase == "A"
       @board.update_a_list(@player)
