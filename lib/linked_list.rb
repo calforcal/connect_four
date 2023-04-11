@@ -54,5 +54,5 @@ class Linked_List
     end
     last_node
   end
-
+  
 end

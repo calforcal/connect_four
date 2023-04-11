@@ -39,16 +39,21 @@ class Game
       turn.set_piece
       cpu_turn.computer_choice
       cpu_turn.set_piece
-      winning_combinations()
+      winning_combinations(board, player_1, player_2)
+    end
+
+    if player_1.has_lost?
+      puts "Computer Wins! Better luck next time..."
+    elsif player_2.has_lost?
+      puts "#{player_1.name} Wins! Way to go!"
     end
   end
 
-  def winning_combinations
-    verticals
-    horizontals
+  def winning_combinations(board, player_1, player_2)
+    verticals(board, player_1, player_2)
   end
 
-  def verticals
-    
+  def verticals(board, player_1, player_2)
+    board.get_verticals(player_1, player_2)
   end
 end
