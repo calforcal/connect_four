@@ -20,6 +20,14 @@ class Turn
     end
   end
 
+  def computer_choice
+    @choice = @acceptable_choices.shuffle.first
+    puts "Computers Turn:"
+    until valid_choice?
+      @choice = @acceptable_choices.shuffle.first
+    end
+  end
+
   def valid_choice?
     false unless @acceptable_choices.include?(@choice.upcase)
     if @choice.upcase == "A"
@@ -65,5 +73,4 @@ class Turn
       puts @board.print_board
     end
   end
-  
 end
