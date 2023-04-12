@@ -37,8 +37,10 @@ class Game
     until player_1.has_lost? || player_2.has_lost?
       turn.get_choice
       turn.set_piece
-      cpu_turn.computer_choice
+      break if winning_combinations(board, player_1, player_2)
+      cpu_turn.get_choice
       cpu_turn.set_piece
+
       winning_combinations(board, player_1, player_2)
     end
 
@@ -51,9 +53,20 @@ class Game
 
   def winning_combinations(board, player_1, player_2)
     verticals(board, player_1, player_2)
+    horizontals(board, player_1, player_2)
+
+    true if player_1.has_lost? || player_2.has_lost?
   end
 
   def verticals(board, player_1, player_2)
     board.get_verticals(player_1, player_2)
+  end
+
+  def horizontals(board, player_1, player_2)
+    board.get_horizontals(player_1, player_2)
+  end
+
+  def diagonals(board, player_1, player_2)
+    
   end
 end

@@ -103,4 +103,21 @@ class Board
       player_1.has_lost = true
     end
   end
+
+  def get_horizontals(player_1, player_2)
+    winning_string = ""
+    for a in 1..6
+      winning_string += "#{@a_list.get_node_value(a)}#{@b_list.get_node_value(a)}#{@c_list.get_node_value(a)}#{@d_list.get_node_value(a)}#{@e_list.get_node_value(a)}#{@f_list.get_node_value(a)}#{@g_list.get_node_value(a)}*"
+    end
+
+    if winning_string.include?(" X  X  X  X ")
+      player_2.has_lost = true
+    elsif winning_string.include?(" O  O  O  O ")
+      player_1.has_lost = true
+    end
+  end
+
+  def get_diagonal_right(player_1, player_2)
+    
+  end
 end

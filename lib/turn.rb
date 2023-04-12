@@ -11,11 +11,11 @@ class Turn
 
   #Possible refactor: tell user column letter is full
   def get_choice
-    puts "Select column A-G"
+    puts "#{@player.name}: Select column A-G"
     @choice = gets.chomp
     until valid_choice?
       puts "Please select a VALID column."
-      puts "Select column A-G"
+      puts "#{@player.name}: Select column A-G"
       @choice = gets.chomp
     end
   end
