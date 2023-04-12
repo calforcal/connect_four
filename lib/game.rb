@@ -54,6 +54,7 @@ class Game
   def winning_combinations(board, player_1, player_2)
     verticals(board, player_1, player_2)
     horizontals(board, player_1, player_2)
+    diagonals(board, player_1, player_2)
 
     true if player_1.has_lost? || player_2.has_lost?
   end
@@ -67,6 +68,7 @@ class Game
   end
 
   def diagonals(board, player_1, player_2)
-    
+    board.get_diagonal_right(player_1, player_2)
+    board.get_diagonal_left(player_1, player_2)
   end
 end
