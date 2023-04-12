@@ -13,7 +13,7 @@ class Turn
   def get_choice
     puts "Select column A-G"
     @choice = gets.chomp
-    until valid_choice? == true
+    until valid_choice?
       puts "Please select a VALID column."
       puts "Select column A-G"
       @choice = gets.chomp

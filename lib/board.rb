@@ -64,4 +64,43 @@ class Board
     @g_list.get_last_node.value = player.piece
   end
 
+  def get_verticals(player_1, player_2)
+    a_vertical = ""
+    b_vertical = ""
+    c_vertical = ""
+    d_vertical = ""
+    e_vertical = ""
+    f_vertical = ""
+    g_vertical = ""
+
+    for a in 1..6 
+      a_vertical += "#{a_list.get_node_value(a)}"
+    end
+    for a in 1..6 
+      b_vertical += "#{b_list.get_node_value(a)}"
+    end
+    for a in 1..6 
+      c_vertical += "#{c_list.get_node_value(a)}"
+    end
+    for a in 1..6 
+      d_vertical += "#{d_list.get_node_value(a)}"
+    end
+    for a in 1..6 
+      e_vertical += "#{e_list.get_node_value(a)}"
+    end
+    for a in 1..6 
+      f_vertical += "#{f_list.get_node_value(a)}"
+    end
+    for a in 1..6 
+      g_vertical += "#{g_list.get_node_value(a)}"
+    end
+
+    winning_string = "#{a_vertical}*#{b_vertical}*#{c_vertical}*#{d_vertical}*#{e_vertical}*#{f_vertical}*#{g_vertical}"
+
+    if winning_string.include?(" X  X  X  X ")
+      player_2.has_lost = true
+    elsif winning_string.include?(" O  O  O  O ")
+      player_1.has_lost = true
+    end
+  end
 end
