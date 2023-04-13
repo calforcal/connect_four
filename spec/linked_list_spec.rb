@@ -33,4 +33,15 @@ RSpec.describe Linked_List do
       expect(@linked_list.get_node_value(1)).to eq("XX")
     end
   end
+
+  describe "#get_last_node" do
+    it "can retrieve the last available node" do
+      @linked_list.append(" . ")
+      @linked_list.append(" O ")
+      @linked_list.append(" X ")
+
+      expect(@linked_list.get_last_node).to be_an_instance_of(Node)
+      expect(@linked_list.get_last_node.value).to eq(" . ")
+    end
+  end
 end
