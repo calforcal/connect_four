@@ -35,6 +35,13 @@ RSpec.describe Linked_List do
   end
 
   describe "#get_last_node" do
+    it "can find the bottom node" do
+      @linked_list.append(" . ")
+      @linked_list.append(" . ")
+      @linked_list.append(" . ")
+
+      expect(@linked_list.get_last_node.node_below).to eq(nil)
+    end
     it "can retrieve the last available node" do
       @linked_list.append(" . ")
       @linked_list.append(" O ")
