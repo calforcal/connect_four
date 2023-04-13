@@ -2,13 +2,13 @@ require "./lib/player"
 
 RSpec.describe Player do
   before(:each) do
-    @player = Player.new("Myles")
+    @player = Player.new("Mickey")
   end
 
   describe "#initialize" do
     it "initializes" do
       expect(@player).to be_an_instance_of(Player)
-      expect(@playern.name).to eq("Myles")
+      expect(@player.name).to eq("Mickey")
     end
   end
 

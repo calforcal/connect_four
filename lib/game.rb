@@ -6,6 +6,7 @@ class Game
 
   def menu
     puts "Welcome to CONNECT FOUR"
+    @input = ""
     until @input.downcase == "p" || @input.downcase == "q"
       puts "Enter p to play. Enter q to quit."
       @input = gets.chomp
@@ -34,11 +35,11 @@ class Game
 
     puts board.print_board
 
-    until player_1.has_lost? || player_2.has_lost?
+    until player_1.has_lost? || player_2.has_lost? || check_draw(board)
       turn.get_choice
       turn.set_piece
       break if winning_combinations(board, player_1, player_2)
-      cpu_turn.get_choice
+      cpu_turn.computer_choice
       cpu_turn.set_piece
 
       winning_combinations(board, player_1, player_2)
@@ -48,6 +49,15 @@ class Game
       puts "Computer Wins! Better luck next time..."
     elsif player_2.has_lost?
       puts "#{player_1.name} Wins! Way to go!"
+    elsif check_draw(board)
+      puts "It's a draw."
+    end
+    puts "Type r to reset or q to quit"
+    @input = gets.chomp.downcase
+    if @input == "r"
+      menu
+    elsif @input == "q"
+      puts "Goodbye!"
     end
   end
 
@@ -70,5 +80,10 @@ class Game
   def diagonals(board, player_1, player_2)
     board.get_diagonal_right(player_1, player_2)
     board.get_diagonal_left(player_1, player_2)
+  end
+
+  def check_draw(board)
+    draw_string = "#{board.a_list.get_node_value(1)}#{board.b_list.get_node_value(1)}#{board.c_list.get_node_value(1)}#{board.d_list.get_node_value(1)}#{board.e_list.get_node_value(1)}#{board.f_list.get_node_value(1)}#{board.g_list.get_node_value(1)}"
+    if draw_string.include?(" . ") then return false else return true end
   end
 end
